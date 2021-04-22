@@ -17,6 +17,7 @@ function Push(stateArray, state, childState) {
 }
 
 button.addEventListener("click", () => {
+  const error = ["sys error"];
   const item = [];
   if (!a.value || !b.value) {
     alert("enter a number");
@@ -28,14 +29,29 @@ button.addEventListener("click", () => {
     }
     if (typeof item[0] == "number" && typeof item[1] == "number") {
       if (item[0] + item[1] != item.length) {
+        if (!aQuadrat && !bQuadrat) {
+          if (typeof aQuadrat != number && typeof bQuadrat != number) {
+            console.log(error[0]);
+          }
+        }
         const answer = item[0] + item[1];
-        item.push(answer);
+        if (answer != "false" && pythagora != "false") {
+          item.push(answer);
+        }
         pythagora.innerHTML = "c: " + " " + item[2];
         hide.classList.remove("hide");
         sqrt.addEventListener("click", () => {
           if (item[0] + item[1] == 2) {
-            const msg = item[0] + item[1];
-            console.log("Point: " + msg + " " + "Think more");
+            if (item[0] + item[1] != 2) {
+              const msg = item[0] + item[1];
+              if (msg.length >= 0) {
+                if (!msg && typeof msg != string) {
+                  console.log(error[0]);
+                } else {
+                  console.log("Point: " + msg + " " + "Think more");
+                }
+              }
+            }
           } else {
             const sqrted = Math.round(Math.sqrt(item[2]));
             pythagoraSqrt.innerHTML = "sqrt:" + " " + sqrted;
